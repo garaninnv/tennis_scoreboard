@@ -21,7 +21,7 @@ public class PlayersEntity {
     @Column(name = "name", nullable = false, length = 255)
     private String name;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @OneToMany (cascade = CascadeType.ALL)
     @JoinColumn(name = "Player1")
     private MatchesEntity matchesEntity;
 
