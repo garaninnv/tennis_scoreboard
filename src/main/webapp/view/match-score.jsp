@@ -8,13 +8,15 @@
 <br>
 UUID: <%= request.getAttribute("uuid") %>
 <br>
-<table style="width: 100%; border-collapse: collapse; border-style: none; height: 36px;">
+<table style="width: 50%; border-collapse: collapse; border-style: none; height: 36px; margin-left: 300">
     <tbody>
     <tr style="height: 18px;">
+        <td style="width: 20%; text-align: center; height: 18px;"></td>
         <td style="width: 50%; text-align: center; height: 18px;">Игрок 1</td>
         <td style="width: 50%; text-align: center; height: 18px;">Игрок 2</td>
     </tr>
     <tr style="height: 18px;">
+        <td style="width: 20%; text-align: center; height: 18px;"></td>
         <td style="width: 50%; height: 18px; text-align: center;">
             <form action="match-score?uuid=<%= request.getAttribute("uuid") %>" method="post">
                 <%= request.getAttribute("namePlayer1")%>
@@ -34,9 +36,22 @@ UUID: <%= request.getAttribute("uuid") %>
 
     </tr>
     <tr style="height: 18px;">
+        <td style="width: 20%; text-align: center; height: 18px;">Текущий счет</td>
+<%--        <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("pointPlayer1") %></td>--%>
         <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("pointPlayer1") %></td>
         <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("pointPlayer2") %></td>
     </tr>
+    <tr style="height: 18px;">
+        <td style="width: 20%; text-align: center; height: 18px;">Гейм</td>
+        <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("gamePlayer1") %></td>
+        <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("gamePlayer2") %></td>
+    </tr>
+    <tr style="height: 18px;">
+        <td style="width: 20%; text-align: center; height: 18px;">Сет</td>
+        <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("setPlayer1") %></td>
+        <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("setPlayer2") %></td>
+    </tr>
+
     </tbody>
 </table>
 </body>

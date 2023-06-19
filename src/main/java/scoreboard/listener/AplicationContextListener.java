@@ -4,11 +4,8 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import scoreboard.db.DataBaseConnectionManager;
-import scoreboard.model.Match;
-import scoreboard.model.PlayersEntity;
+import scoreboard.model.MatcheEntity;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -25,7 +22,7 @@ public class AplicationContextListener implements ServletContextListener {
         String jdbcURL = "jdbc:postgresql://localhost/test";
         Statement stmt = null;
         Connection con = null;
-        HashMap<UUID, Match> uuidMatchHashMap = new HashMap<>();
+        HashMap<UUID, MatcheEntity> uuidMatchHashMap = new HashMap<>();
         context.setAttribute("uuidMatchHashMap", uuidMatchHashMap);
         DataBaseConnectionManager dataBaseConnectionManager = null;
         try {

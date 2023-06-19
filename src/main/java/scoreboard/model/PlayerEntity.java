@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @Entity
 @Table(name = "players")
-public class PlayersEntity {
+public class PlayerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
@@ -21,11 +22,16 @@ public class PlayersEntity {
     @Column(name = "name", nullable = false, length = 255)
     private String name;
 
-    @OneToMany (cascade = CascadeType.ALL)
-    @JoinColumn(name = "Player1")
-    private MatchesEntity matchesEntity;
+    @OneToMany(mappedBy = "player1")
+    private List<MatcheEntity> matchesOnePleyer;
 
-    public PlayersEntity(String name) {
+    @OneToMany(mappedBy = "player2")
+    private List<MatcheEntity> matchesTwoPleyer;
+
+    @OneToMany(mappedBy = "winner")
+    private List<MatcheEntity> matchesWinnerPleyer;
+
+    public PlayerEntity(String name) {
         this.name = name;
     }
 }

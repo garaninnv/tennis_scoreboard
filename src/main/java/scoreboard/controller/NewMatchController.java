@@ -7,9 +7,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import scoreboard.model.Match;
+import scoreboard.model.MatcheEntity;
 import scoreboard.model.PlayerDAO;
-import scoreboard.model.PlayersEntity;
+import scoreboard.model.PlayerEntity;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,8 +29,8 @@ public class NewMatchController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext servletContext = req.getServletContext();
 
-        PlayersEntity player1 = new PlayersEntity(req.getParameter("player1"));
-        PlayersEntity player2 = new PlayersEntity(req.getParameter("player2"));
+        PlayerEntity player1 = new PlayerEntity(req.getParameter("player1"));
+        PlayerEntity player2 = new PlayerEntity(req.getParameter("player2"));
 //        Проверяет существование игроков в таблице Players. Если игрока с таким именем не существует, создаём.
         playerDAO.addPlayer(player1);
         playerDAO.addPlayer(player2);
@@ -38,12 +38,11 @@ public class NewMatchController extends HttpServlet {
 //        (существующую только в памяти приложения, либо в key-value storage). Ключом коллекции является UUID,
 //        значением - экземпляр класса Match
 
-        HashMap<UUID, Match> uuidMatchHashMap = (HashMap<UUID, Match>) servletContext.
+        HashMap<UUID, MatcheEntity> uuidMatchHashMap = (HashMap<UUID, MatcheEntity>) servletContext.
                 getAttribute("uuidMatchHashMap");
 
         UUID uuidMatch = UUID.randomUUID();
-        uuidMatchHashMap.put(uuidMatch, new Match(player1.getId(), player2.getId(),0, 0, -1));
-
+        uuidMatchHashMap.put(uuidMatch, new MatcheEntity(player1, player2, new PlayerEntity()));
         resp.sendRedirect("match-score?uuid="+uuidMatch);
         System.out.println();
     }

@@ -6,6 +6,6 @@
 </head>
 <body>
 <p><a href="/tennis/new-match">Начать новый матч</a></p>
-<p><a href="/tennis/matches">Страница сыгранных матчей</a></p>
+<p><a href="/tennis/matches?page=1&filter_by_player_name">Страница сыгранных матчей</a></p>
 </body>
 </html>
