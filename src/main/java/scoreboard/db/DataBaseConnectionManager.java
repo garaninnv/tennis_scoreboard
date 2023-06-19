@@ -6,20 +6,20 @@ import java.sql.SQLException;
 
 public class DataBaseConnectionManager {
     private Connection connection;
-    private final String user = "postgres";
-    private final String password = "123";
+//    private final String user = "postgres";
+//    private final String password = "123";
 
     public DataBaseConnectionManager(String jdbcURL) throws SQLException, ClassNotFoundException {
-//        Class.forName("org.h2.Driver");
-                Class.forName("org.postgresql.Driver");
-//        this.connection = DriverManager.getConnection(jdbcURL);
-        connection = null;
-        try {
-            connection = DriverManager.getConnection(jdbcURL, user, password);
-            System.out.println("Connected to the PostgreSQL server successfully.");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        Class.forName("org.h2.Driver");
+                //Class.forName("org.postgresql.Driver");
+        this.connection = DriverManager.getConnection(jdbcURL);
+//        connection = null;
+//        try {
+//            connection = DriverManager.getConnection(jdbcURL, user, password);
+//            System.out.println("Connected to the PostgreSQL server successfully.");
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        }
     }
 
     public Connection getConnection() {

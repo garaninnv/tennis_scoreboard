@@ -25,11 +25,6 @@
       <version>2.1.214</version>
     </dependency>
     <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>42.5.4</version>
-    </dependency>
-    <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
       <version>6.0.0</version>
@@ -41,6 +36,7 @@
       <version>5.6.14.Final</version>
       <type>pom</type>
     </dependency>
+
     <dependency>
       <groupId>org.hibernate.common</groupId>
       <artifactId>hibernate-commons-annotations</artifactId>
@@ -70,8 +66,6 @@
       <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>2.0.0</version>
     </dependency>
-
-
 
   </dependencies>
   <build>
