@@ -6,7 +6,6 @@
 </head>
 <body>
 <p>Поиск матча по имени игрока</p>
-<%--Заполнить NAME  ссылке. Данные взять из формы name--%>
 <form action="matches" method="get">
     <input type="text" name="filter_by_player_name" size="40" />
     <input type="submit" value="Найти"/>

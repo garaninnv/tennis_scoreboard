@@ -37,7 +37,6 @@ UUID: <%= request.getAttribute("uuid") %>
     </tr>
     <tr style="height: 18px;">
         <td style="width: 20%; text-align: center; height: 18px;">Текущий счет</td>
-<%--        <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("pointPlayer1") %></td>--%>
         <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("pointPlayer1") %></td>
         <td style="width: 50%; text-align: center; height: 18px;"><%= request.getAttribute("pointPlayer2") %></td>
     </tr>
